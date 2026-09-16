@@ -6,9 +6,15 @@ body{margin:0;background:var(--white);color:var(--ink);font-family:Manrope,Arial
 .brand{color:var(--ink);display:flex;align-items:center;gap:9px;font-size:10px;line-height:10px;text-transform:uppercase;letter-spacing:.9px;text-decoration:none}
 .brand b{font-weight:800}
 .brand-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font:500 10px 'DM Mono'}
-nav{display:flex;gap:30px}
+nav{display:flex;gap:30px;align-items:center}
 nav a,.login,.footer-links a{font-size:12px;color:#505258;text-decoration:none}
 .header-actions{display:flex;align-items:center;gap:23px}
+
+/* Por padrão, esconde os botões de autenticação de dentro do nav no computador */
+.mobile-auth-links {
+  display: none;
+}
+
 .button{display:inline-flex;align-items:center;justify-content:center;gap:22px;background:var(--ink);border:1px solid var(--ink);color:#fff;text-decoration:none;padding:15px 20px;border-radius:3px;font:700 12px Manrope;cursor:pointer;transition:.2s}
 .button:hover{background:#555;border-color:#555;transform:translateY(-1px)}
 .button.small{padding:11px 15px}
@@ -106,10 +112,10 @@ footer p{font-size:10px;color:#777}
 
 @media(max-width:760px){
   .header{height:66px;padding:0 5%}
-  .header-actions{display:none}
+  .header-actions{display:none} /* Esconde os botões originais fora do menu no celular */
   .menu{display:block}
   
-  /* Menu mobile funcional ao clicar em ☰ */
+  /* Menu mobile estilizado para abrir ao clicar em ☰ */
   .header nav{
     display:none;
     position:absolute;
@@ -122,9 +128,24 @@ footer p{font-size:10px;color:#777}
     box-shadow:0 10px 20px rgba(0,0,0,0.1);
     border-bottom:1px solid var(--line);
     z-index:99;
+    gap:15px;
   }
   .header nav.active{
     display:flex;
+  }
+
+  /* Exibe e organiza os botões dentro do menu no celular */
+  .mobile-auth-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid var(--line);
+    padding-top: 15px;
+    margin-top: 5px;
+  }
+  .mobile-auth-links .button {
+    width: 100%;
+    text-align: center;
   }
 
   .hero{padding:60px 7% 75px;grid-template-columns:1fr;gap:45px}
