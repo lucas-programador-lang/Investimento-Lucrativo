@@ -1,78 +1,76 @@
 const loginForm = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
 
-// 1. Lógica de Login Real conectada ao Banco de Dados (Neon)
 if (loginForm) {
     loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         const email = document.getElementById('email').value;
-        const passwordHash = document.getElementById('password').value; // Senha digitada
+        const password = document.getElementById('password').value;
         
         const loginBtn = document.getElementById('login-btn');
-        if (loginBtn) loginBtn.innerText = 'Autenticando...';
+        loginBtn.innerText = 'Entrando...';
+        loginBtn.disabled = true;
         
         try {
             const response = await fetch('/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, passwordHash })
+                body: JSON.stringify({ email, password })
             });
 
             const data = await response.json();
 
             if (response.ok) {
-                // Salvamos os dados reais do usuário retornados pelo PostgreSQL
-                localStorage.setItem('userAuthToken', data.user.id);
-                localStorage.setItem('userName', data.user.fullName);
-                localStorage.setItem('userSession', JSON.stringify(data.user));
-                
+                // Salva o ID real do usuário que veio do banco Neon
+                localStorage.setItem('userId', data.user.id);
+                localStorage.setItem('userName', data.user.name || 'Investidor');
                 window.location.href = 'dashboard.html';
             } else {
-                alert(data.error || 'E-mail ou senha incorretos.');
-                if (loginBtn) loginBtn.innerText = 'Entrar';
+                alert(data.error || 'Erro ao fazer login.');
+                loginBtn.innerText = 'Entrar na Plataforma';
+                loginBtn.disabled = false;
             }
         } catch (error) {
-            console.error('Erro na requisição de login:', error);
             alert('Erro ao conectar com o servidor.');
-            if (loginBtn) loginBtn.innerText = 'Entrar';
+            loginBtn.innerText = 'Entrar na Plataforma';
+            loginBtn.disabled = false;
         }
     });
 }
 
-// 2. Lógica de Cadastro Real conectada ao Banco de Dados (Neon)
 if (registerForm) {
     registerForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        
-        const fullName = document.getElementById('fullName')?.value || 'Investidor';
-        const cpf = document.getElementById('cpf')?.value || '';
+        // Ajuste os IDs abaixo conforme o seu formulário de cadastro (ex: name, email, password)
+        const name = document.getElementById('name') ? document.getElementById('name').value : 'Novo Investidor';
         const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone')?.value || '';
-        const passwordHash = document.getElementById('password').value;
+        const password = document.getElementById('password').value;
 
         const registerBtn = document.getElementById('register-btn');
-        if (registerBtn) registerBtn.innerText = 'Criando conta...';
+        registerBtn.innerText = 'Criando conta...';
+        registerBtn.disabled = true;
         
         try {
             const response = await fetch('/api/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ fullName, cpf, email, phone, passwordHash })
+                body: JSON.stringify({ name, email, password })
             });
 
             const data = await response.json();
 
             if (response.ok) {
-                alert('Conta criada com sucesso! Faça seu login.');
+                alert('Conta criada com sucesso! Faça login.');
                 window.location.href = 'login.html';
             } else {
-                alert(data.error || 'Erro ao criar conta.');
-                if (registerBtn) registerBtn.innerText = 'Cadastrar';
+                alert(data.error || 'Erro ao cadastrar.');
+                registerBtn.innerText = 'Criar Conta';
+                registerBtn.disabled = false;
             }
         } catch (error) {
-            console.error('Erro na requisição de cadastro:', error);
             alert('Erro ao conectar com o servidor.');
-            if (registerBtn) registerBtn.innerText = 'Cadastrar';
+            registerBtn.innerText = 'Criar Conta';
+            registerBtn.disabled = false;
         }
     });
 }
