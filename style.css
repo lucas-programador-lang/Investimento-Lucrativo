@@ -1,2 +1,130 @@
-:root{--ink:#111214;--muted:#62656b;--line:#dedfe1;--soft:#f5f5f4;--gray:#9aa0a6;--white:#fff;--accent:#25272a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--white);color:var(--ink);font-family:Manrope,Arial,sans-serif}.header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 5.5%;border-bottom:1px solid #eee;position:sticky;top:0;background:#fffc;backdrop-filter:blur(14px);z-index:10}.brand{color:var(--ink);display:flex;align-items:center;gap:9px;font-size:10px;line-height:10px;text-transform:uppercase;letter-spacing:.9px;text-decoration:none}.brand b{font-weight:800}.brand-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font:500 10px 'DM Mono'}nav{display:flex;gap:30px}nav a,.login,.footer-links a{font-size:12px;color:#505258;text-decoration:none}.header-actions{display:flex;align-items:center;gap:23px}.button{display:inline-flex;align-items:center;justify-content:center;gap:22px;background:var(--ink);border:1px solid var(--ink);color:#fff;text-decoration:none;padding:15px 20px;border-radius:3px;font:700 12px Manrope;cursor:pointer;transition:.2s}.button:hover{background:#555;border-color:#555;transform:translateY(-1px)}.button.small{padding:11px 15px}.menu{display:none;border:0;background:none;font-size:22px}.hero{max-width:1230px;margin:auto;min-height:570px;padding:87px 5.5% 72px;display:grid;grid-template-columns:1fr 440px;align-items:center;gap:75px}.eyebrow{font:500 10px 'DM Mono';letter-spacing:1.4px;color:#5b5d61;margin:0 0 20px}.eyebrow i{display:inline-block;width:23px;border-top:1px solid;margin:0 9px 3px 0}.hero h1,.section h2,.community h2{font-size:clamp(38px,4.4vw,65px);line-height:1.08;letter-spacing:-3px;margin:0;max-width:620px}.hero h1 em{font-family:Georgia,serif;font-weight:400}.lead{color:var(--muted);font-size:15px;line-height:1.8;max-width:520px;margin:26px 0}.hero-actions{display:flex;gap:28px;align-items:center}.text-link{font-size:12px;font-weight:700;color:var(--ink);text-decoration:none}.text-link span{font-size:18px;margin-left:8px}.disclaimer{font-size:10px;color:#87898e;margin-top:25px}.dashboard-card{background:#202224;color:white;padding:24px 25px;border-radius:4px;box-shadow:20px 22px 0 #eeeeec}.card-top,.card-stats,.next-event{display:flex;justify-content:space-between;align-items:center}.card-top{font:10px 'DM Mono';letter-spacing:1px;color:#babdc1}.card-top button{border:0;background:none;color:white;letter-spacing:2px}.balance-label{font-size:11px;color:#aeb1b5;margin:34px 0 3px}.balance{font-size:35px;font-weight:700;letter-spacing:-1.5px;margin:0}.balance span{font-size:19px}.chart{height:145px;margin-top:15px}.chart svg{width:100%;height:100%}.area{fill:url(#fill)}.line{fill:none;stroke:#f2f2f2;stroke-width:2}.card-stats{padding:17px 0;border-top:1px solid #424448;border-bottom:1px solid #424448}.card-stats div{display:grid;gap:5px}.card-stats span{font-size:10px;color:#aeb1b5}.card-stats b{font:500 11px 'DM Mono'}.positive{color:#cdd2d3}.next-event{padding-top:17px;font-size:11px}.next-event div{margin-right:auto}.next-event small{display:block;font:9px 'DM Mono';color:#9fa3a7;margin-bottom:3px}.pulse{height:8px;width:8px;border-radius:50%;background:#d7dcda;margin-right:10px}.numbers{background:#f0f0ef;display:grid;grid-template-columns:repeat(4,1fr);padding:30px 8%;gap:30px}.numbers div{display:flex;align-items:center;gap:15px;border-right:1px solid #d3d3d1}.numbers div:last-child{border:0}.numbers b{font:500 23px 'DM Mono';letter-spacing:-1px}.numbers span{font-size:10px;line-height:1.5;color:#63666a}.section{padding:118px 7%;max-width:1400px;margin:auto}.how h2{margin-bottom:66px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:55px}.steps article{border-top:1px solid var(--ink);padding-top:18px}.steps article>span,.security-grid article>b{font:11px 'DM Mono';color:#777}.steps h3,.security-grid h3{font-size:18px;margin:38px 0 11px}.steps p,.plan p,.sim-copy>p,.security-grid p{color:var(--muted);font-size:13px;line-height:1.8;margin:0}.plans{background:#f5f5f4;max-width:none;padding-left:7%;padding-right:7%;display:grid;grid-template-columns:1fr 1fr;gap:20px}.section-note{font-size:12px;color:var(--muted);line-height:1.7;max-width:390px;align-self:end}.plan-grid{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:45px}.plan{padding:34px;background:#fff;border:1px solid #dedede}.plan.featured{background:#25272a;color:#fff;border-color:#25272a}.tag{font:10px 'DM Mono';letter-spacing:1px;color:#74777c}.featured .tag{color:#c4c7ca}.plan h3{font-size:27px;margin:30px 0 12px;letter-spacing:-1px}.plan ul{padding:0;list-style:none;margin:30px 0}.plan li{font-size:12px;border-top:1px solid #e2e2e1;padding:12px 0}.featured li{border-color:#46484b}.outline{border:1px solid #222;background:transparent;padding:13px 16px;font:700 11px Manrope;cursor:pointer}.simulator{display:grid;grid-template-columns:1fr 490px;gap:110px;align-items:center}.sim-copy h2{margin-bottom:22px}.risk-note{display:flex;gap:14px;border-left:2px solid #777;margin-top:34px;padding:3px 0 3px 15px;font-size:11px;color:#666;line-height:1.5}.risk-note b{color:#333}.sim-box{padding:32px;background:#f3f3f2}.sim-box label,.sim-box legend{font-size:11px;font-weight:700}.input-currency{display:flex;align-items:center;gap:8px;margin:9px 0 5px;padding:0 14px;background:#fff;border:1px solid #d8d8d6}.input-currency span{font:14px 'DM Mono';color:#777}.input-currency input{width:100%;padding:14px 0;border:0;outline:0;font:600 17px 'DM Mono'}.hint{font-size:10px;color:#777}fieldset{border:0;padding:22px 0 0;margin:0}.choice{background:#fff;border:1px solid #ddd;display:flex;align-items:center;padding:12px;margin-top:8px;cursor:pointer}.choice input{display:none}.choice span{display:grid;gap:2px}.choice small{font-size:10px;color:#777;font-weight:400}.choice i{margin-left:auto;width:13px;height:13px;border:1px solid #888;border-radius:50%}.choice input:checked~i{border:4px solid #292b2d}.estimate{border-top:1px solid #d8d8d6;margin:21px 0;display:grid;grid-template-columns:1fr 1fr;gap:17px}.estimate div{padding-top:14px;display:grid;gap:5px}.estimate span{font-size:10px;color:#777}.estimate b{font:500 12px 'DM Mono'}.full{width:100%}.security{border-top:1px solid #eee}.security>div:first-child{display:flex;justify-content:space-between;align-items:end}.security-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;margin-top:65px}.security-grid article{padding:25px;background:#f4f4f3;min-height:190px}.security-grid h3{margin-top:35px}.community{margin:0 7% 95px;background:#222426;color:white;padding:55px 6%;display:flex;align-items:center;justify-content:space-between}.community h2{font-size:39px}.community>div>p:last-child{font-size:12px;color:#bfc0c1}.light{background:#fff;color:#222;border-color:#fff}footer{border-top:1px solid #e4e4e4;padding:35px 7%;display:flex;align-items:center;justify-content:space-between;gap:20px}footer p{font-size:10px;color:#777}.footer-links{display:flex;gap:17px}#toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,100px);background:#222;color:#fff;padding:13px 18px;border-radius:3px;font-size:12px;transition:.25s;z-index:20}#toast.show{transform:translate(-50%,0)}
-@media(max-width:760px){.header{height:66px;padding:0 5%}.header nav,.header-actions{display:none}.menu{display:block}.hero{padding:60px 7% 75px;grid-template-columns:1fr;gap:45px}.hero h1{letter-spacing:-2px}.dashboard-card{width:100%;box-shadow:10px 12px #eee}.numbers{grid-template-columns:1fr 1fr;padding:25px 7%;gap:20px}.numbers div{border:0}.section{padding:75px 7%}.steps,.plan-grid,.security-grid{grid-template-columns:1fr;gap:20px}.plans{display:block}.section-note{margin-top:20px}.plan-grid{margin-top:35px}.simulator{grid-template-columns:1fr;gap:40px}.community{margin:0 0 60px;padding:47px 7%;display:block}.community .button{margin-top:20px}.security>div:first-child{display:block}footer{display:grid}.footer-links{flex-wrap:wrap}.hero-actions{gap:18px}.sim-box{padding:23px}}
+/* ==========================================
+   INVESTIMENTO LUCRATIVO - MODERN ELEGANT GRAY UI
+   ========================================== */
+
+:root {
+  --bg-primary: #121212;
+  --bg-secondary: #1a1a1a;
+  --bg-card: #242424;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --border-color: #374151;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho e Navegação */
+header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.logo-icon {
+  background-color: var(--text-main);
+  color: var(--bg-primary);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+/* Conteúdo Principal */
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Rodapé Padrão (Computador) */
+footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 2rem;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: var(--text-main);
+}
+
+/* ==========================================
+   RESPONSIVIDADE PARA CELULAR (Correção do rodapé)
+   ========================================== */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+  
+  footer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    /* Espaço extra na parte inferior para a barra do navegador do celular não tampar nada */
+    padding: 2rem 1rem 110px 1rem !important; 
+  }
+  
+  .footer-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 10px;
+  }
+}
