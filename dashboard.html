@@ -20,7 +20,7 @@
 <body style="background: var(--soft);">
   
   <header class="header">
-    <a href="#" class="brand">
+    <a href="index.html" class="brand">
       <span class="brand-mark">IL</span><span>investimento<br><b>lucrativo</b></span>
     </a>
     <nav class="dash-nav">
@@ -43,8 +43,8 @@
                 <div class="card-top"><span>SALDO DISPONÍVEL</span></div>
                 <p class="balance" id="available-balance">R$ 0<span>,00</span></p>
                 <div style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
-                    <button class="button small" style="background: white; color: black; flex: 1; min-width: 120px;" onclick="alert('Sistema Pix em breve')">Aportar (Pix)</button>
-                    <button class="outline" style="border-color: white; color: white; flex: 1; min-width: 120px;" onclick="alert('Saque Mín. R$ 50')">Sacar</button>
+                    <button class="button small" id="btn-aportar" style="background: white; color: black; flex: 1; min-width: 120px;">Aportar (Pix)</button>
+                    <button class="outline" id="btn-sacar" style="border-color: white; color: white; flex: 1; min-width: 120px;">Sacar</button>
                 </div>
             </div>
             
@@ -119,6 +119,9 @@
     </section>
   </main>
   
+  <!-- Elemento Toast Flutuante -->
+  <div id="toast" role="status" aria-live="polite"></div>
+
   <script src="dashboard.js"></script>
 </body>
 </html>
