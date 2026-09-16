@@ -8,58 +8,48 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body style="background: var(--soft); display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 40px 0;">
-  
-  <main class="sim-box" style="width: 100%; max-width: 500px; margin: 20px;">
+  <main class="sim-box" style="width: 90%; max-width: 550px; margin: 20px;">
     <div style="text-align: center; margin-bottom: 30px;">
       <a href="index.html" class="brand" style="justify-content: center;">
         <span class="brand-mark">IL</span><span>investimento<br><b>lucrativo</b></span>
       </a>
     </div>
-    
     <h2 style="font-size: 24px; margin-bottom: 20px; text-align: center;">Abra sua conta</h2>
-    
     <form id="register-form" style="display: grid; gap: 15px;">
-      
       <div>
         <label style="font-size: 11px; font-weight: 700;">Nome Completo</label>
-        <div class="input-currency" style="padding: 0 14px;"><input type="text" id="fullName" required style="font-family: Manrope; font-size: 14px;" /></div>
+        <div class="input-currency" style="padding: 0 14px;"><input type="text" id="fullName" required /></div>
       </div>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
         <div>
           <label style="font-size: 11px; font-weight: 700;">CPF</label>
-          <div class="input-currency" style="padding: 0 14px;"><input type="text" id="cpf" required style="font-family: Manrope; font-size: 14px;" /></div>
+          <div class="input-currency" style="padding: 0 14px;"><input type="text" id="cpf" required /></div>
         </div>
         <div>
           <label style="font-size: 11px; font-weight: 700;">Telefone</label>
-          <div class="input-currency" style="padding: 0 14px;"><input type="text" id="phone" required style="font-family: Manrope; font-size: 14px;" /></div>
+          <div class="input-currency" style="padding: 0 14px;"><input type="text" id="phone" required /></div>
         </div>
       </div>
-
       <div>
         <label style="font-size: 11px; font-weight: 700;">E-mail</label>
-        <div class="input-currency" style="padding: 0 14px;"><input type="email" id="email" required style="font-family: Manrope; font-size: 14px;" /></div>
+        <div class="input-currency" style="padding: 0 14px;"><input type="email" id="email" required /></div>
       </div>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
         <div>
           <label style="font-size: 11px; font-weight: 700;">Senha</label>
-          <div class="input-currency" style="padding: 0 14px;"><input type="password" id="password" required style="font-family: Manrope; font-size: 14px;" /></div>
+          <div class="input-currency" style="padding: 0 14px;"><input type="password" id="password" required /></div>
         </div>
         <div>
           <label style="font-size: 11px; font-weight: 700;">Chave Pix (Saques)</label>
-          <div class="input-currency" style="padding: 0 14px;"><input type="text" id="pixKey" required style="font-family: Manrope; font-size: 14px;" /></div>
+          <div class="input-currency" style="padding: 0 14px;"><input type="text" id="pixKey" required /></div>
         </div>
       </div>
-      
       <button class="button full" type="submit" id="register-btn" style="margin-top: 10px;">Criar minha conta</button>
-      
       <p style="text-align: center; margin-top: 10px; font-size: 12px; color: var(--muted);">
         Já possui conta? <a href="login.html" style="color: var(--ink); font-weight: 700;">Fazer login</a>
       </p>
     </form>
   </main>
-
   <div id="toast" role="status" aria-live="polite"></div>
   <script src="auth.js"></script>
 </body>
