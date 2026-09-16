@@ -30,6 +30,14 @@ function showToast(message) {
 }
 
 document.querySelectorAll('[data-whatsapp]').forEach(link => link.addEventListener('click', event => { event.preventDefault(); showToast('Configure o link no painel administrativo.'); }));
-const menuBtn = document.querySelector('.menu'); if(menuBtn) { menuBtn.addEventListener('click', () => showToast('Em telas menores, navegue pelas seções rolando a página.')); }
+
+// Correção do Menu Mobile (Abre e fecha as opções ao clicar em ☰)
+const menuBtn = document.querySelector('.menu'); 
+const navEl = document.querySelector('nav');
+if(menuBtn && navEl) { 
+  menuBtn.addEventListener('click', () => { 
+    navEl.classList.toggle('active');
+  }); 
+}
 
 updateSimulation();
