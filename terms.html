@@ -4,11 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Termos de Uso | Investimento Lucrativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
     <a href="index.html" class="brand"><span class="brand-mark">IL</span><span>investimento<br><b>lucrativo</b></span></a>
+    <button class="menu" aria-label="Abrir menu">☰</button>
+    <nav>
+      <a href="index.html#como-funciona">Como funciona</a>
+      <a href="index.html#planos">Planos</a>
+      <a href="index.html#simulador">Simulador</a>
+      <a href="index.html#seguranca">Segurança</a>
+      <div class="mobile-auth-links">
+        <a class="login-mobile" href="login.html">Entrar</a>
+        <a class="button small" href="register.html">Criar conta</a>
+      </div>
+    </nav>
     <div class="header-actions">
       <a class="login" href="login.html">Entrar</a>
       <a class="button small" href="register.html">Criar conta</a>
@@ -17,7 +31,7 @@
 
   <main class="section" style="max-width: 900px; padding: 60px 7%;">
     <p class="eyebrow">COMPLIANCE E CONTRATO</p>
-    <h1>Termos de Uso</h1>
+    <h1 style="font-size: clamp(32px, 4vw, 48px); letter-spacing: -2px; margin: 0 0 15px;">Termos de Uso</h1>
     <p class="lead" style="margin-bottom: 40px;">Última atualização: Setembro de 2026</p>
 
     <div style="display: grid; gap: 30px; font-size: 14px; line-height: 1.8; color: var(--muted);">
@@ -48,5 +62,8 @@
       <a href="support.html">Suporte</a>
     </div>
   </footer>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
 </body>
 </html>
