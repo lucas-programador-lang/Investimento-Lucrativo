@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Função profissional de Toast (Substitui o alert feio)
+    // Função de Toast profissional e elegante
     function showToast(message) { 
         const toastElement = document.querySelector('#toast'); 
         if(!toastElement) return;
@@ -46,20 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => toastElement.classList.remove('show'), 3600); 
     }
 
-    // Interligando os botões de Aportar e Sacar para usarem o Toast bonito
-    const aportarBtn = document.querySelector('button, .btn-aportar, [onclick*="aportar"], :has-text("Aportar")'); 
-    // Caso seus botões tenham classes específicas, você pode selecionar por ID ou classe. 
-    // Exemplo genérico pegando os botões da área de saldo:
-    const actionButtons = document.querySelectorAll('.dashboard-card button, .card-actions button');
-    
-    // Se preferir garantir pelos botões do card de saldo:
-    const saldoCardButtons = document.querySelectorAll('.dashboard-card button');
-    if (saldoCardButtons.length >= 2) {
-        saldoCardButtons[0].addEventListener('click', (e) => {
+    // Ações dos botões Aportar e Sacar com o Toast
+    const btnAportar = document.getElementById('btn-aportar');
+    const btnSacar = document.getElementById('btn-sacar');
+
+    if (btnAportar) {
+        btnAportar.addEventListener('click', (e) => {
             e.preventDefault();
             showToast('Sistema Pix em breve');
         });
-        saldoCardButtons[1].addEventListener('click', (e) => {
+    }
+
+    if (btnSacar) {
+        btnSacar.addEventListener('click', (e) => {
             e.preventDefault();
             showToast('Saque Mín. R$ 50');
         });
@@ -94,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSimulation();
     }
 
-    // Botão Sair corrigido para retornar ao index.html
+    // Botão Sair redirecionando para index.html
     const logoutBtn = document.getElementById('logout-btn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', (event) => { 
