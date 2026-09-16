@@ -24,11 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('active-plan-amount').textContent = financialFormatter.format(accountData.activePlanAmount);
 
     const transactionsTableBody = document.getElementById('transactions-list');
-    accountData.transactions.forEach(transaction => {
-        const amountColor = transaction.isPositive ? '#10b981' : 'var(--ink)';
-        const amountPrefix = transaction.isPositive ? '+' : '-';
-        transactionsTableBody.innerHTML += `<tr style="border-bottom: 1px solid #eee;"><td style="padding: 15px;">${transaction.date}</td><td style="padding: 15px;">${transaction.type}</td><td style="padding: 15px; color: ${amountColor}; font-weight: 700;">${amountPrefix} ${financialFormatter.format(transaction.amount)}</td><td style="padding: 15px; color: var(--muted);">${transaction.status}</td></tr>`;
-    });
+    if (transactionsTableBody) {
+        accountData.transactions.forEach(transaction => {
+            const amountColor = transaction.isPositive ? '#10b981' : 'var(--ink)';
+            const amountPrefix = transaction.isPositive ? '+' : '-';
+            transactionsTableBody.innerHTML += `<tr style="border-bottom: 1px solid #eee;"><td style="padding: 15px;">${transaction.date}</td><td style="padding: 15px;">${transaction.type}</td><td style="padding: 15px; color: ${amountColor}; font-weight: 700;">${amountPrefix} ${financialFormatter.format(transaction.amount)}</td><td style="padding: 15px; color: var(--muted);">${transaction.status}</td></tr>`;
+        });
+    }
 
     const amountInput = document.querySelector('#amount');
     const planRadios = document.querySelectorAll('input[name="plan"]');
@@ -38,11 +40,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateSimulation() {
         if(!amountInput) return;
         const currentAmount = parseCurrencyValue(amountInput.value);
-        const selectedPlanKey = document.querySelector('input[name="plan"]:checked').value;
+        const selectedPlanElement = document.querySelector('input[name="plan"]:checked');
+        if(!selectedPlanElement) return;
+        const selectedPlanKey = selectedPlanElement.value;
         const activePlan = investmentPlans[selectedPlanKey];
-        document.querySelector('#earnings').textContent = financialFormatter.format(currentAmount * activePlan.rate);
-        document.querySelector('#total').textContent = financialFormatter.format(currentAmount * (1 + activePlan.rate));
-        document.querySelector('#maturity').textContent = activePlan.date;
+        
+        const earningsEl = document.querySelector('#earnings');
+        const totalEl = document.querySelector('#total');
+        const maturityEl = document.querySelector('#maturity');
+        
+        if(earningsEl) earningsEl.textContent = financialFormatter.format(currentAmount * activePlan.rate);
+        if(totalEl) totalEl.textContent = financialFormatter.format(currentAmount * (1 + activePlan.rate));
+        if(maturityEl) maturityEl.textContent = activePlan.date;
     }
 
     if(amountInput) {
@@ -52,5 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSimulation();
     }
 
-    document.getElementById('logout-btn').addEventListener('click', () => { localStorage.removeItem('userAuthToken'); window.location.href = 'login.html'; });
+    // Botão Sair corrigido para retornar ao index.html
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (event) => { 
+            event.preventDefault();
+            localStorage.removeItem('userAuthToken'); 
+            localStorage.removeItem('userName'); 
+            window.location.href = 'index.html'; 
+        });
+    }
 });
