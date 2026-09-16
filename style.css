@@ -12,7 +12,7 @@ nav a,.login,.footer-links a{font-size:12px;color:#505258;text-decoration:none}
 .button{display:inline-flex;align-items:center;justify-content:center;gap:22px;background:var(--ink);border:1px solid var(--ink);color:#fff;text-decoration:none;padding:15px 20px;border-radius:3px;font:700 12px Manrope;cursor:pointer;transition:.2s}
 .button:hover{background:#555;border-color:#555;transform:translateY(-1px)}
 .button.small{padding:11px 15px}
-.menu{display:none;border:0;background:none;font-size:22px}
+.menu{display:none;border:0;background:none;font-size:22px;cursor:pointer}
 .hero{max-width:1230px;margin:auto;min-height:570px;padding:87px 5.5% 72px;display:grid;grid-template-columns:1fr 440px;align-items:center;gap:75px}
 .eyebrow{font:500 10px 'DM Mono';letter-spacing:1.4px;color:#5b5d61;margin:0 0 20px}
 .eyebrow i{display:inline-block;width:23px;border-top:1px solid;margin:0 9px 3px 0}
@@ -106,8 +106,27 @@ footer p{font-size:10px;color:#777}
 
 @media(max-width:760px){
   .header{height:66px;padding:0 5%}
-  .header nav,.header-actions{display:none}
+  .header-actions{display:none}
   .menu{display:block}
+  
+  /* Menu mobile funcional ao clicar em ☰ */
+  .header nav{
+    display:none;
+    position:absolute;
+    top:66px;
+    left:0;
+    width:100%;
+    background:var(--white);
+    flex-direction:column;
+    padding:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+    border-bottom:1px solid var(--line);
+    z-index:99;
+  }
+  .header nav.active{
+    display:flex;
+  }
+
   .hero{padding:60px 7% 75px;grid-template-columns:1fr;gap:45px}
   .hero h1{letter-spacing:-2px}
   .dashboard-card{width:100%;box-shadow:10px 12px #eee}
@@ -123,7 +142,7 @@ footer p{font-size:10px;color:#777}
   .community .button{margin-top:20px}
   .security>div:first-child{display:block}
   
-  /* CORREÇÃO DO RODAPÉ NO CELULAR (Empilha tudo direitinho e dá respiro para a barra flutuante) */
+  /* Rodapé ajustado para celular sem sobreposição */
   footer{
     display:flex !important;
     flex-direction:column !important;
