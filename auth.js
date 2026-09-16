@@ -1,13 +1,5 @@
 const loginForm = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
-const toastElement = document.getElementById('toast');
-
-function showToastMessage(message) {
-    if (!toastElement) return;
-    toastElement.textContent = message;
-    toastElement.classList.add('show');
-    setTimeout(() => toastElement.classList.remove('show'), 3600);
-}
 
 if (loginForm) {
     loginForm.addEventListener('submit', (event) => {
@@ -15,8 +7,7 @@ if (loginForm) {
         const userEmail = document.getElementById('email').value;
         const userPassword = document.getElementById('password').value;
         
-        // Simulando a comunicação com a futura API Backend
-        showToastMessage('Autenticando...');
+        document.getElementById('login-btn').innerText = 'Aguarde...';
         
         setTimeout(() => {
             if (userEmail && userPassword) {
@@ -24,18 +15,18 @@ if (loginForm) {
                 localStorage.setItem('userName', 'Investidor');
                 window.location.href = 'dashboard.html';
             }
-        }, 1000);
+        }, 800);
     });
 }
 
 if (registerForm) {
     registerForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        showToastMessage('Criando conta...');
+        document.getElementById('register-btn').innerText = 'Criando...';
         
         setTimeout(() => {
             localStorage.setItem('userAuthToken', 'fake-jwt-token-12345');
             window.location.href = 'dashboard.html';
-        }, 1500);
+        }, 1000);
     });
 }
