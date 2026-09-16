@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Investimento Lucrativo</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body style="background: var(--soft); display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+  
+  <main class="sim-box" style="width: 100%; max-width: 400px; margin: 20px;">
+    <div style="text-align: center; margin-bottom: 30px;">
+      <a href="index.html" class="brand" style="justify-content: center;">
+        <span class="brand-mark">IL</span><span>investimento<br><b>lucrativo</b></span>
+      </a>
+    </div>
+    
+    <h2 style="font-size: 24px; margin-bottom: 20px; text-align: center;">Acesse sua conta</h2>
+    
+    <form id="login-form">
+      <div style="margin-bottom: 15px;">
+        <label style="font-size: 11px; font-weight: 700;">E-mail</label>
+        <div class="input-currency" style="padding: 0 14px;">
+          <input type="email" id="email" required style="font-family: Manrope; font-size: 14px; font-weight: 500;" placeholder="seu@email.com" />
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 25px;">
+        <label style="font-size: 11px; font-weight: 700;">Senha</label>
+        <div class="input-currency" style="padding: 0 14px;">
+          <input type="password" id="password" required style="font-family: Manrope; font-size: 14px; font-weight: 500;" placeholder="••••••••" />
+        </div>
+      </div>
+      
+      <button class="button full" type="submit" id="login-btn">Entrar na plataforma</button>
+      
+      <p style="text-align: center; margin-top: 20px; font-size: 12px; color: var(--muted);">
+        Ainda não tem conta? <a href="register.html" style="color: var(--ink); font-weight: 700;">Criar conta</a>
+      </p>
+    </form>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="auth.js"></script>
+</body>
+</html>
