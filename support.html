@@ -4,23 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Suporte | Investimento Lucrativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
     <a href="index.html" class="brand"><span class="brand-mark">IL</span><span>investimento<br><b>lucrativo</b></span></a>
+    <button class="menu" aria-label="Abrir menu">☰</button>
+    <nav>
+      <a href="index.html#como-funciona">Como funciona</a>
+      <a href="index.html#planos">Planos</a>
+      <a href="index.html#simulador">Simulador</a>
+      <a href="index.html#seguranca">Segurança</a>
+      <div class="mobile-auth-links">
+        <a class="login-mobile" href="login.html">Entrar</a>
+        <a class="button small" href="register.html">Criar conta</a>
+      </div>
+    </nav>
     <div class="header-actions">
       <a class="login" href="login.html">Entrar</a>
       <a class="button small" href="register.html">Criar conta</a>
     </div>
   </header>
 
-  <main class="section" style="max-width: 900px; padding: 60px 7%;">
+  <main class="section" style="max-width: 1000px; padding: 60px 7%;">
     <p class="eyebrow">CENTRAL DE ATENDIMENTO</p>
-    <h1>Suporte ao Investidor</h1>
+    <h1 style="font-size: clamp(32px, 4vw, 48px); letter-spacing: -2px; margin: 0 0 15px;">Suporte ao Investidor</h1>
     <p class="lead" style="margin-bottom: 40px;">Precisa de auxílio com sua conta, aportes ou chaves Pix? Nossa equipe está pronta para ajudar.</p>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
       <div class="plan" style="padding: 30px;">
         <span class="tag">ATENDIMENTO OFICIAL</span>
         <h3 style="font-size: 20px; margin: 15px 0;">Canal do WhatsApp</h3>
@@ -47,7 +61,7 @@
       <a href="support.html">Suporte</a>
     </div>
   </footer>
-  
+
   <div id="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
 </body>
