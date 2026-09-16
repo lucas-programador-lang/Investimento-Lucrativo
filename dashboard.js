@@ -18,10 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function splitCurrency(value) { const formatted = financialFormatter.format(value).split(','); return `${formatted[0]}<span>,${formatted[1]}</span>`; }
 
-    document.getElementById('available-balance').innerHTML = splitCurrency(accountData.availableBalance);
-    document.getElementById('invested-balance').innerHTML = splitCurrency(accountData.investedBalance);
-    document.getElementById('total-earnings').textContent = `+ ${financialFormatter.format(accountData.totalEarnings)}`;
-    document.getElementById('active-plan-amount').textContent = financialFormatter.format(accountData.activePlanAmount);
+    const availEl = document.getElementById('available-balance');
+    const invEl = document.getElementById('invested-balance');
+    const earnEl = document.getElementById('total-earnings');
+    const activePlanEl = document.getElementById('active-plan-amount');
+
+    if(availEl) availEl.innerHTML = splitCurrency(accountData.availableBalance);
+    if(invEl) invEl.innerHTML = splitCurrency(accountData.investedBalance);
+    if(earnEl) earnEl.textContent = `+ ${financialFormatter.format(accountData.totalEarnings)}`;
+    if(activePlanEl) activePlanEl.textContent = financialFormatter.format(accountData.activePlanAmount);
 
     const transactionsTableBody = document.getElementById('transactions-list');
     if (transactionsTableBody) {
@@ -29,6 +34,34 @@ document.addEventListener('DOMContentLoaded', () => {
             const amountColor = transaction.isPositive ? '#10b981' : 'var(--ink)';
             const amountPrefix = transaction.isPositive ? '+' : '-';
             transactionsTableBody.innerHTML += `<tr style="border-bottom: 1px solid #eee;"><td style="padding: 15px;">${transaction.date}</td><td style="padding: 15px;">${transaction.type}</td><td style="padding: 15px; color: ${amountColor}; font-weight: 700;">${amountPrefix} ${financialFormatter.format(transaction.amount)}</td><td style="padding: 15px; color: var(--muted);">${transaction.status}</td></tr>`;
+        });
+    }
+
+    // Função profissional de Toast (Substitui o alert feio)
+    function showToast(message) { 
+        const toastElement = document.querySelector('#toast'); 
+        if(!toastElement) return;
+        toastElement.textContent = message; 
+        toastElement.classList.add('show'); 
+        setTimeout(() => toastElement.classList.remove('show'), 3600); 
+    }
+
+    // Interligando os botões de Aportar e Sacar para usarem o Toast bonito
+    const aportarBtn = document.querySelector('button, .btn-aportar, [onclick*="aportar"], :has-text("Aportar")'); 
+    // Caso seus botões tenham classes específicas, você pode selecionar por ID ou classe. 
+    // Exemplo genérico pegando os botões da área de saldo:
+    const actionButtons = document.querySelectorAll('.dashboard-card button, .card-actions button');
+    
+    // Se preferir garantir pelos botões do card de saldo:
+    const saldoCardButtons = document.querySelectorAll('.dashboard-card button');
+    if (saldoCardButtons.length >= 2) {
+        saldoCardButtons[0].addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Sistema Pix em breve');
+        });
+        saldoCardButtons[1].addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('Saque Mín. R$ 50');
         });
     }
 
